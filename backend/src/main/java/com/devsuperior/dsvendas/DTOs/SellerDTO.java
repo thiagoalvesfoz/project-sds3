@@ -38,8 +38,4 @@ public class SellerDTO implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Seller toModel() {
-        return new Seller(id, name);
-    }
 }
