@@ -2,7 +2,7 @@ import BarChart from "components/barchart";
 import DataTable from "components/datatable";
 import DonutChart from "components/donutchart";
 
-function App() {
+export default function Dashboard() {
   return (
     <>
       <div className="container">
@@ -25,5 +25,3 @@ function App() {
     </>
   );
 }
-
-export default App;

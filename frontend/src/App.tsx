@@ -1,14 +1,5 @@
-import Footer from "components/footer";
-import NavBar from "components/navbar";
-
 import Routes from "./routes";
 
-const App = () => (
-  <>
-    <NavBar />
-    <Routes />
-    <Footer />
-  </>
-);
+const App = () => <Routes />;
 
 export default App;
