@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  postgres-sds3:
+    container_name: postgres-sds3
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: dsvendas
+      POSTGRES_PASSWORD: 1234567
+    restart: always
+    tty: true
+    networks:
+      - postgres-network
+    volumes:
+      - ./postgres:/docker-entrypoint-initdb.d
+      
+  pgadmin-sds3:
+    image: dpage/pgadmin4
+    container_name: pgadmin-sds3
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "teste@teste.com"
+      PGADMIN_DEFAULT_PASSWORD: "1234567"
+    ports:
+      - "8000:80"
+    networks:
+      - postgres-network
+
+networks: 
+  postgres-network:
+    driver: bridge
