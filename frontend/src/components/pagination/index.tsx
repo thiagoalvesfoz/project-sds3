@@ -18,7 +18,7 @@ function Pagination({ page, onPageChange }: Props) {
           {Array(page.totalPages)
             .fill(1)
             .map((_, index) => (
-              <li className={`page-item ${page.number === index ? "disabled" : ""}`}>
+              <li className={`page-item ${page.number === index ? "disabled" : ""}`} key={index}>
                 <span className="page-link" style={{ cursor: "pointer" }} onClick={() => onPageChange(index)}>
                   {index + 1}
                 </span>

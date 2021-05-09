@@ -35,10 +35,10 @@ function BarChart() {
         const data = res.data as SaleSuccess[];
         const labels = data.map(({ sellerName }) => sellerName);
         const series = data.map((sale) => round((100.0 * sale.deals) / sale.visited, 1));
-        setChartData({ labels: { categories: labels }, series: [{ ...chartData.series[0], data: series }] });
+        setChartData({ labels: { categories: labels }, series: [{ name: "% Sucesso", data: series }] });
       })
       .catch(() => console.log("opa"));
-  }, [chartData]);
+  }, []);
 
   const options = {
     plotOptions: {

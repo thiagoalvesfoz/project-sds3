@@ -3,6 +3,7 @@ import Pagination from "components/pagination";
 import { useEffect, useState } from "react";
 import { SalePage } from "types/sale";
 import { baseURL } from "utils/api";
+import { formatLocalDate } from "utils/format";
 
 const inicialState: SalePage = {
   last: false,
@@ -45,12 +46,12 @@ function DataTable() {
           </thead>
           <tbody>
             {page?.content?.map((item) => (
-              <tr>
-                <td>{item.date}</td>
+              <tr key={item.id}>
+                <td>{formatLocalDate(item.date, "dd/MM/yyyy")}</td>
                 <td>{item.seller.name}</td>
                 <td>{item.visited}</td>
                 <td>{item.deals}</td>
-                <td>{item.amount}</td>
+                <td>R$ {item.amount.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
